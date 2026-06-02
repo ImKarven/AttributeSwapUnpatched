@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "attribute-swap-unpatched",
+	"version": "${version}",
+	"name": "Attribute Swap Unpatched",
+	"description": "This mod unpatches attribute swapping",
+	"authors": [
+		"Karven"
+	],
+	"license": "GPL-3.0",
+	"icon": "assets/attribute-swap-unpatched/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"me.karven.AttributeSwapUnpatched"
+		],
+		"client": [
+			"me.karven.client.AttributeSwapUnpatchedClient"
+		]
+	},
+	"mixins": [
+		"attribute-swap-unpatched.mixins.json",
+		{
+			"config": "attribute-swap-unpatched.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~26.2-",
+		"java": ">=25"
+	}
+}
