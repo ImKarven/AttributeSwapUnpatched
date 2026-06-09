@@ -15,7 +15,7 @@ Certain servers may block attribute swap on their side (For example, a Paper ser
 However, for this mod, both the server and client must have it if they want to use attribute swapping.
 
 ## Usage
-- Installing this mod on the client lets you and other players (if opened to LAN) perform attribute swaps in your worlds, but not in vanilla servers.
+- Installing this mod on the client lets you and other players that have this mod installed (if opened to LAN) perform attribute swaps in your worlds, but not in vanilla servers.
 - Installing this mod on the server lets players on the server that have this mod installed to perform attribute swaps.
 
 ## Revert
