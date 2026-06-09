@@ -15,17 +15,14 @@ public class AttributeSwapUnpatched implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		PayloadTypeRegistry.clientboundPlay().register(DisablePacketPayload.TYPE, DisablePacketPayload.CODEC);
+		PayloadTypeRegistry.clientboundPlay().register(EnablePacketPayload.TYPE, EnablePacketPayload.CODEC);
 
-		// Request client to disable attribute swapping on join
-		ServerPlayConnectionEvents.JOIN.register((handler, _, server) -> {
-			// Ignore open to LAN worlds
-			if (!server.isDedicatedServer()) return;
-
+		// Request client with this mod to enable attribute swapping on join
+		ServerPlayConnectionEvents.JOIN.register((handler, _, _) -> {
 			final ServerPlayer player = handler.player;
-			if (!ServerPlayNetworking.canSend(player, DisablePacketPayload.TYPE)) return;
-            LOGGER.info("Requested {} to disable attribute swap", player.getPlainTextName());
-			ServerPlayNetworking.send(player, DisablePacketPayload.INSTANCE);
+			if (!ServerPlayNetworking.canSend(player, EnablePacketPayload.TYPE)) return;
+            LOGGER.info("Requested {} to enable attribute swap", player.getPlainTextName());
+			ServerPlayNetworking.send(player, EnablePacketPayload.INSTANCE);
 		});
 	}
 }
